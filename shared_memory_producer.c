@@ -23,7 +23,7 @@ int main () {
 	// O_crea = create the memory, O_RDWR= read and write 
 	//0777 permission 
 	
-	ftruncate(fd, SIZE); //setting the size of the memory;
+	ftruncate(fd, SIZE); //setting the size of the memory
 
 	void *ptr=mmap(0, SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0); 
 	//mapping the object of the shared memory to the address space
@@ -36,10 +36,10 @@ int main () {
 	sprintf(p, "%s", message2);
 	p+=strlen(message2);
 
-	printf("Data: %s\n", (char *)ptr); //verifyint the data in the shared mmemory	
+	printf("Data: %s\n", (char *)ptr); //verify the data in the shared mmemory	
 	munmap(ptr, SIZE); //unlink the memory
 	close(fd);
-	shm_unlink(name); //remove the object from system;
+	shm_unlink(name); //remove the object from the system;
 	return 0;
 
 }
